@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio JavaScript</title>
+    <style>
+        body {
+            background-color: #f5a6a6;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #imagenPrincipalGaleria {
+            width: 600px;
+            height: 500px;
+            display: block;
+            margin: 20px auto;
+            border: 6px solid #c73434;
+            box-shadow: 2px 2px 5px #801616;
+            object-fit: cover;
+        }
+
+        #contenedorMiniaturasGaleria {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .miniaturaGaleria {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid #c73434;
+            box-shadow: 1px 1px 3px #801616;
+        }
+
+            .miniaturaGaleria:hover {
+                border-color: #801616;
+            }
+
+        img {
+            max-width: 900px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .info-container {
+            text-align: left;
+            background-color: #d46161;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px; /* Aumentamos el espacio debajo del contenedor de info */
+        }
+
+        h1 {
+            text-align:center;
+            color: #781919;
+            margin-bottom: 25px; /* Aumentamos el espacio debajo del título principal */
+            font-size: 2.5em; /* Aumentamos el tamaño del título principal */
+        }
+
+        h2 {
+            color: #781919;
+            margin-top: 20px; /* Añadimos espacio arriba del título de la galería */
+            margin-bottom: 20px; /* Aumentamos el espacio debajo del título de la galería */
+            font-size: 2em; /* Aumentamos el tamaño del título de la galería */
+        }
+
+        p {
+            color: #631010;
+            margin-bottom: 16px; /* Aumentamos un poco el espacio entre párrafos */
+            font-size: 1.1em; /* Aumentamos ligeramente el tamaño del texto */
+        }
+
+        strong {
+            color: #631010;
+        }
+
+        #marquesina-container {
+            width: 100%; /* Aumentamos el ancho de la marquesina */
+            background-color: #d46161;
+            padding: 15px 0; /* Aumentamos el padding vertical */
+            margin-bottom: 20px;
+            border-radius: 5px; /* Añadimos un pequeño borde redondeado */
+            box-shadow: 1px 1px 3px #801616; /* Añadimos una sombra suave */
+            overflow: hidden; /* Asegura que el contenido no se salga */
+        }
+
+        #marquesina-content {
+            white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+            animation: scroll-left 20s linear infinite; /* Animación de desplazamiento */
+            font-size: 1.3em; /* Aumentamos el tamaño del texto de la marquesina */
+            color: #801616; /* Color del texto de la marquesina */
+            padding-left: 100%; /* Empieza desde la derecha fuera de la pantalla */
+        }
+
+            #marquesina-content:hover {
+                animation-play-state: paused; /* Pausa la animación al pasar el ratón */
+                cursor: pointer; /* Cambia el cursor para indicar interactividad */
+            }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="marquesina-container">
+        <div id="marquesina-content">
+            🎓¡Bienvenido a Mi Portafolio JavaScript!🎓 Explora nuestros proyectos y descubre nuestras habilidades. ✨ ¡No dudes en contactarnos! 📲
+        </div>
+    </div>
+
+    <div class="info-container">
+        <img src="https://laureate-comunicacion.com/prensa/wp-content/uploads/2021/04/UVM-Lomas-Verdes.png" alt="Imagen UVM Lomas Verdes">
+        <script>
+            const tituloProyecto = "Mi Portafolio JavaScript";
+            const integrantesEquipo = ["Natalia Ceja", "Fatima Flores", "Ximena Hernández", "Noeli Pérez Calles", " & Camila Suárez"];
+            const campus = "UVM Lomas Verdes";
+            const docente = "Juan Ramon Urban Oropeza";
+
+            document.write("<h1>" + tituloProyecto + "</h1>");
+            document.write("<p><strong>Integrantes del equipo:</strong> " + integrantesEquipo.join(", ") + "</p>");
+            document.write("<p><strong>Campus:</strong> " + campus + "</p>");
+            document.write("<p><strong>Docente:</strong> " + docente + "</p>");
+        </script>
+    </div>
+
+    <h2>Galería de Proyectos</h2>
+    <img id="imagenPrincipalGaleria" src="" alt="Imagen del Proyecto">
+    <div id="contenedorMiniaturasGaleria">
+    </div>
+
+    <script>
+        const imagenesGaleria = [
+            "Carpeta de Imagenes/ODS4.jpg",
+            "Carpeta de Imagenes/alumnos.jpg",
+            "Carpeta de Imagenes/estudiantes.jpg",
+            "Carpeta de Imagenes/Calidad.jpg",
+            "Carpeta de Imagenes/explicacion.jpg",
+            "Carpeta de Imagenes/clasepizarron.jpg"
+        ];
+
+        const imagenPrincipalGaleria = document.getElementById("imagenPrincipalGaleria");
+        const contenedorMiniaturasGaleria = document.getElementById("contenedorMiniaturasGaleria");
+
+        imagenesGaleria.forEach((ruta, indice) => {
+            const miniatura = document.createElement("img");
+            miniatura.src = ruta;
+            miniatura.alt = `Miniatura del Proyecto ${indice + 1}`;
+            miniatura.classList.add("miniaturaGaleria");
+            miniatura.addEventListener("click", () => {
+                imagenPrincipalGaleria.src = ruta;
+                imagenPrincipalGaleria.alt = `Imagen del Proyecto ${indice + 1}`;
+            });
+            contenedorMiniaturasGaleria.appendChild(miniatura);
+
+            if (indice === 0) {
+                imagenPrincipalGaleria.src = ruta;
+                imagenPrincipalGaleria.alt = `Imagen del Proyecto ${indice + 1}`;
+            }
+        });
+    </script>
+</body>
+</html>
