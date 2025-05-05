@@ -1,0 +1,114 @@
+﻿body {
+    background-color: #f5a6a6;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#imagenPrincipalGaleria {
+    width: 600px;
+    height: 500px;
+    display: block;
+    margin: 20px auto;
+    border: 6px solid #c73434;
+    box-shadow: 2px 2px 5px #801616;
+    object-fit: cover;
+}
+
+#contenedorMiniaturasGaleria {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.miniaturaGaleria {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid #c73434;
+    box-shadow: 1px 1px 3px #801616;
+}
+
+    .miniaturaGaleria:hover {
+        border-color: #801616;
+    }
+
+img {
+    max-width: 900px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.info-container {
+    text-align: left;
+    background-color: #d46161;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px; /* Aumentamos el espacio debajo del contenedor de info */
+}
+
+h1 {
+    text-align: center;
+    color: #781919;
+    margin-bottom: 25px; /* Aumentamos el espacio debajo del título principal */
+    font-size: 2.5em; /* Aumentamos el tamaño del título principal */
+}
+
+h2 {
+    color: #781919;
+    margin-top: 20px; /* Añadimos espacio arriba del título de la galería */
+    margin-bottom: 20px; /* Aumentamos el espacio debajo del título de la galería */
+    font-size: 2em; /* Aumentamos el tamaño del título de la galería */
+}
+
+p {
+    color: #631010;
+    margin-bottom: 16px; /* Aumentamos un poco el espacio entre párrafos */
+    font-size: 1.1em; /* Aumentamos ligeramente el tamaño del texto */
+}
+
+strong {
+    color: #631010;
+}
+
+#marquesina-container {
+    width: 100%; /* Aumentamos el ancho de la marquesina */
+    background-color: #d46161;
+    padding: 15px 0; /* Aumentamos el padding vertical */
+    margin-bottom: 20px;
+    border-radius: 5px; /* Añadimos un pequeño borde redondeado */
+    box-shadow: 1px 1px 3px #801616; /* Añadimos una sombra suave */
+    overflow: hidden; /* Asegura que el contenido no se salga */
+}
+
+#marquesina-content {
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    animation: scroll-left 20s linear infinite; /* Animación de desplazamiento */
+    font-size: 1.3em; /* Aumentamos el tamaño del texto de la marquesina */
+    color: #801616; /* Color del texto de la marquesina */
+    padding-left: 100%; /* Empieza desde la derecha fuera de la pantalla */
+}
+
+    #marquesina-content:hover {
+        animation-play-state: paused; /* Pausa la animación al pasar el ratón */
+        cursor: pointer; /* Cambia el cursor para indicar interactividad */
+    }
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
